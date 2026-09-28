@@ -386,12 +386,69 @@ def create_pdf(output_path="Cross_Team_Incident_Memory_Agent_Overview.pdf"):
     story.append(Paragraph("&bull; <b>Service Topology & Blast Radius Mesh:</b> Interactive visual dependency graph connecting client ingress (<code>checkout-web</code>) to payment orchestrator and downstream settlement ledgers, highlighting cascading p99 latency.", bullet_style))
     story.append(Paragraph("&bull; <b>Organizational Incident Ledger & Dossier Inspector:</b> Filterable database of all 52 historical incidents across 8 months, with an interactive case dossier viewer displaying root causes, resolving engineers, and PR commits.", bullet_style))
     story.append(Paragraph("&bull; <b>Diagnostic Confidence Progression Graph:</b> Prominently mounted executive progression chart visualizing confidence acceleration across the demo arc (40% &rarr; 92% &rarr; 88% &rarr; 95%).", bullet_style))
+    story.append(Spacer(1, 8))
+
+    # =========================================================================
+    # Section 6: Full-Stack Technology Architecture
+    # =========================================================================
+    story.append(Paragraph("6. Full-Stack Technology Architecture", h1_style))
+    
+    tech_data = [
+        [
+            Paragraph("<b>Layer / Domain</b>", table_header_style),
+            Paragraph("<b>Technology & Version</b>", table_header_style),
+            Paragraph("<b>Architectural Role & Specifications</b>", table_header_style)
+        ],
+        [
+            Paragraph("<b>Memory & Graph Layer</b>", table_bold_cell),
+            Paragraph("Vectorize Hindsight Cloud<br/><code>hindsight-client &gt;= 0.1.0</code>", table_cell_style),
+            Paragraph("Episodic memory bank (<code>payment-infrastructure-incidents</code>), semantic symptom clustering, temporal decay contextual weighting, &lt;350ms instant retain indexing.", table_cell_style)
+        ],
+        [
+            Paragraph("<b>Inference & Reasoning</b>", table_bold_cell),
+            Paragraph("Groq LPU Acceleration<br/><code>groq &gt;= 0.11.0</code>", table_cell_style),
+            Paragraph("Ultra-fast (~1.8s) inference with <code>openai/gpt-oss-120b</code> in strict JSON schema mode. Dynamic fallback chain to <code>qwen/qwen3-32b</code> with automated exponential retry.", table_cell_style)
+        ],
+        [
+            Paragraph("<b>SRE Command Console</b>", table_bold_cell),
+            Paragraph("Streamlit Framework<br/><code>streamlit &gt;= 1.39.0</code>", table_cell_style),
+            Paragraph("Interactive incident War Room cockpit, multi-tab layout (Topology, Ledger, Specs), reactive state orchestration, and responsive Case File design language.", table_cell_style)
+        ],
+        [
+            Paragraph("<b>Data Visualization</b>", table_bold_cell),
+            Paragraph("Altair / Vega-Lite<br/><code>altair &gt;= 5.0.0</code>", table_cell_style),
+            Paragraph("Declarative statistical charts for 8-month cross-team incident volume distributions and diagnostic confidence progression curves.", table_cell_style)
+        ],
+        [
+            Paragraph("<b>Runtime & Orchestration</b>", table_bold_cell),
+            Paragraph("Python 3.11+ / Pandas 2.0+<br/><code>aiohttp, python-dotenv</code>", table_cell_style),
+            Paragraph("Async coroutine execution, in-memory corridor telemetry aggregation, filterable post-mortem caching, and strict <code>.env</code> secret isolation.", table_cell_style)
+        ],
+        [
+            Paragraph("<b>Target Infrastructure</b>", table_bold_cell),
+            Paragraph("Kubernetes, Postgres, Redis<br/>CoreDNS, Kafka", table_cell_style),
+            Paragraph("Automated SRE runbook generation (<code>kubectl patch/rollout</code>, <code>psql pg_terminate_backend</code>, Redis Redlock locks, CoreDNS cluster daemonsets).", table_cell_style)
+        ]
+    ]
+
+    t_tech = Table(tech_data, colWidths=[1.6 * inch, 2.0 * inch, 3.8 * inch])
+    t_tech.setStyle(TableStyle([
+        ('BACKGROUND', (0,0), (-1,0), c_ink),
+        ('BOX', (0,0), (-1,-1), 0.8, c_border),
+        ('INNERGRID', (0,0), (-1,-1), 0.5, c_border),
+        ('ROWBACKGROUNDS', (0,1), (-1,-1), [c_raised, c_paper]),
+        ('TOPPADDING', (0,0), (-1,-1), 3.5),
+        ('BOTTOMPADDING', (0,0), (-1,-1), 3.5),
+        ('LEFTPADDING', (0,0), (-1,-1), 6),
+        ('RIGHTPADDING', (0,0), (-1,-1), 6),
+    ]))
+    story.append(t_tech)
     story.append(PageBreak())
 
     # =========================================================================
-    # Page 3: Section 6: The 4 Planted Proof-of-Concept Scenarios
+    # Page 3: Section 7: The 4 Planted Proof-of-Concept Scenarios
     # =========================================================================
-    story.append(Paragraph("6. Planted Scenarios & Test Suite Verification", h1_style))
+    story.append(Paragraph("7. Planted Scenarios & Test Suite Verification", h1_style))
     story.append(Paragraph(
         "The system's intelligence was verified against 4 rigorously engineered production scenarios executed headlessly via <code>test_scenarios.py</code>:",
         body_style
@@ -447,7 +504,7 @@ def create_pdf(output_path="Cross_Team_Incident_Memory_Agent_Overview.pdf"):
     # =========================================================================
     # Section 7: HackwithHyderabad 3.0 Judging Alignment & Impact
     # =========================================================================
-    story.append(Paragraph("7. Hackathon Scoring Rubric Alignment & Impact", h1_style))
+    story.append(Paragraph("8. Hackathon Scoring Rubric Alignment & Impact", h1_style))
     
     rubric_data = [
         [
@@ -499,7 +556,7 @@ def create_pdf(output_path="Cross_Team_Incident_Memory_Agent_Overview.pdf"):
     # =========================================================================
     # Section 8: Quickstart & Deployment
     # =========================================================================
-    story.append(Paragraph("8. Repository & Deployment Reference", h1_style))
+    story.append(Paragraph("9. Repository & Deployment Reference", h1_style))
     story.append(Paragraph(
         "<b>GitHub Repository:</b> <font color='#B03A2E'><u>https://github.com/aravind21490/Cross-Team-Incident-Memory-Agent</u></font><br/>"
         "<b>One-Click Launch (Windows):</b> <code>run_demo.bat</code> · <b>Linux/macOS:</b> <code>./run_demo.sh</code><br/>"

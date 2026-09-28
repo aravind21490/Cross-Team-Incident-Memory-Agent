@@ -74,6 +74,20 @@ In large-scale fintech and payment engineering organizations (`payments-core`, `
 
 ---
 
+## 🛠️ Full-Stack Technology Stack
+
+| Architectural Layer | Technology & Framework | Version | Purpose & Production Role |
+| :--- | :--- | :---: | :--- |
+| **Episodic Memory Layer** | **Vectorize Hindsight Cloud** | `hindsight-client >= 0.1.0` | Managed cross-team incident memory bank (`payment-infrastructure-incidents`), semantic symptom clustering, temporal decay contextual weighting, `<350ms` instant retain indexing. |
+| **Inference & LLM Engine** | **Groq LPU (Language Processing Unit)** | `groq >= 0.11.0` | Ultra-fast hardware-accelerated inference (~1.8s) powered by `openai/gpt-oss-120b` in strict JSON schema mode. Dynamic fallback chain to `qwen/qwen3-32b` with automated exponential backoff. |
+| **Frontend & War Room** | **Streamlit** | `streamlit >= 1.39.0` | Real-time SRE Incident Command Center, multi-tab operational cockpit (Topology, Blast Radius, Ledger), reactive state orchestration, and responsive Case File design language. |
+| **Data Visualization** | **Altair / Vega-Lite** | `altair >= 5.0.0` | Declarative statistical charts for 8-month cross-team incident volume distributions and diagnostic confidence progression curves. |
+| **Data Engine & Runtime** | **Python 3.11+ / Pandas** | `pandas >= 2.0.0` | Async event loop execution (`aiohttp`, `asyncio`), in-memory corridor telemetry aggregation, filterable ledger caching, and strict `.env` secret isolation. |
+| **Document Generation** | **ReportLab Engine** | `reportlab >= 5.0.0` | Enterprise PDF whitepaper compilation with two-pass canvas (`NumberedCanvas`), custom flowables, tables, and case-file palette styling. |
+| **Target Infrastructure** | **Kubernetes, Postgres, Redis, CoreDNS** | Enterprise | Automated SRE runbook generation (`kubectl patch/rollout`, `psql pg_terminate_backend`, Redis Redlock locks, CoreDNS cluster daemonsets). |
+
+---
+
 ## 🧠 How Hindsight Memory Is Used
 
 1. **What is Retained**:
